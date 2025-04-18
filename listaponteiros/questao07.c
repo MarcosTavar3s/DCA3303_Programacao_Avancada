@@ -1,3 +1,12 @@
+/*
+    Resposta:
+    1° printf: faz o print do contador (valor armazenado em i)
+    2° printf: mostra índice do vetor (posição i) e o valor armazenado nessa posição do vetor com 1 casa decimal
+    3° printf: mostra o valor armazenado do endereço armazenado em f (endereço da 1° posição do vetor) + i saltos na memória com 1 casa decimal 
+    4° printf: imprime o endereço do vetor na posição i
+    5° printf: imprime o endereço armazenado em f + i saltos na memória (é o mesmo que o do vetor) 
+*/
+
 #include <stdio.h>
 
 int main(void){
@@ -17,7 +26,7 @@ int main(void){
      printf(" *(f + %d) = %.1f",i, *(f+i)); 
      // imprimir o endereço do vetor na posição i
      printf(" &vet[%d] = %X",i, &vet[i]);
-     // imprimir o endereço de f + i saltos na memória (é o mesm o que o do vetor) 
+     // imprimir o endereço de f + i saltos na memória (é o mesmo que o do vetor) 
      printf(" (f + %d) = %X",i, f+i);
      
      printf("\n");
