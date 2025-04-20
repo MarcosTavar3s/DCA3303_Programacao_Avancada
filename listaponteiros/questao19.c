@@ -5,9 +5,9 @@
 void compara(float *vet, int n){
     float aux;
     
-    for(int i=1; i<n-1; i++){
+    for(int i=0; i<n; i++){
         // compara com o proximo, se for maior, proximo fica com o valor do atual
-        if(vet[i]>vet[i+1]){
+        if(vet[i]>vet[i+1] && i<n-1){
             aux = vet[i];
             vet[i] = vet[i+1];
             vet[i+1] = aux;
@@ -16,15 +16,13 @@ void compara(float *vet, int n){
         // compara com os anteriores, se for menor, anterior fica com o valor do atual
         if(i!=0 && vet[i]<vet[i-1]){
             for(int j=i; j>0; j--){
-                if(vet[j]>=vet[j-1]) break;
-                
-                else{
+                if(vet[j]<vet[j-1]){
                     aux = vet[j];
                     vet[j] = vet[j-1];
                     vet[j-1] = aux;
                 }
+                else break;
             }
-            
         }
     }
     
