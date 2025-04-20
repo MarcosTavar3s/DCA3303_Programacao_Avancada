@@ -15,36 +15,18 @@ void compara(float *vet, int n){
         
         // compara com os anteriores, se for menor, anterior fica com o valor do atual
         if(i!=0 && vet[i]<vet[i-1]){
-            
-            for(int j=i-1; j>=0; j--){
-                if(vet[i]>=vet[j]) break;
+            for(int j=i; j>0; j--){
+                if(vet[j]>=vet[j-1]) break;
                 
                 else{
-                    aux = vet[i];
-                    vet[i] = vet[j];
-                    vet[j] = aux;
+                    aux = vet[j];
+                    vet[j] = vet[j-1];
+                    vet[j-1] = aux;
                 }
             }
             
         }
     }
-
-    // varrida do começo até o final para garantir que fique ordenado adequadamente
-    for(int i=0; i<n-1; i++){
-        if(vet[i] > vet[i+1]){
-            aux = vet[i];
-            vet[i] = vet[i+1];
-            vet[i+1] = aux;
-        }
-        if(vet[i] < vet[i-1]){
-            aux = vet[i];
-            vet[i] = vet[i-1];
-            vet[i-1] = aux;
-        }
-        
-
-    }
-    
     
 }
 
