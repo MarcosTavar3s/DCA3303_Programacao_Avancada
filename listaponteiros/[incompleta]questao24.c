@@ -9,7 +9,26 @@ void preenchimento_matriz(int **matriz, int nl, int nc){
     }
 }
 
-int **multiplica_matrizes(int **a, int **b, int **c, int nl_final, int inter , int nc_final){
+void multiplica_matrizes(int **a, int **b, int **c, int nl_final, int inter, int nc_final){
+    
+    // preenchimento de c deve ser dois for (1° com nl_final, 2° com nc_final)
+    // for(int i = 0; i < nl_final; i++){
+    //     for(int j = 0; j < nc_final; j++){
+        
+    // }    
+    // }
+    
+    
+    c[0][0] = a[0][0]*b[0][0]+a[0][1]*b[1][0]+a[0][2]*b[2][0];
+    c[0][1] = a[0][0]*b[0][1]+a[0][1]*b[1][1]+a[0][2]*b[2][1];
+    c[0][2] = a[0][0]*b[0][2]+a[0][1]*b[1][2]+a[0][2]*b[2][2];
+    c[0][3] = a[0][0]*b[0][3]+a[0][1]*b[1][3]+a[0][2]*b[2][3];
+
+    c[1][0] = a[1][0]*b[0][0]+a[1][1]*b[1][0]+a[1][2]*b[2][0];
+    c[1][1] = a[1][0]*b[0][1]+a[1][1]*b[1][1]+a[1][2]*b[2][1];
+    c[1][2] = a[1][0]*b[0][2]+a[1][1]*b[1][2]+a[1][2]*b[2][2];
+    c[1][3] = a[1][0]*b[0][3]+a[1][1]*b[1][3]+a[1][2]*b[2][3];
+
     
 }
 
@@ -74,6 +93,20 @@ int main()
     
     // multiplicacao das matrizes
     multiplica_matrizes(a,b,c,2,3,4);
+    
+    for(int i=0; i<nlc; i++){
+        for(int j=0; j<ncc;j++){
+            printf("%d ", c[i][j]);
+        }
+        printf("\n");
+    }
+    
+    free(a[0]);
+    free(b[0]);
+    free(c[0]);
+    free(a);
+    free(b);
+    free(c);
     
     return 0;
 }
