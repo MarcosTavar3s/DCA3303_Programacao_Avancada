@@ -4,7 +4,7 @@
 void preenchimento_matriz(int **matriz, int nl, int nc){
     for(int i=0; i<nl; i++){
         for(int j=0; j<nc;j++){
-            matriz[i][j] = rand()%10;
+            matriz[i][j] = rand()%20;
         }
     }
 }
@@ -12,24 +12,16 @@ void preenchimento_matriz(int **matriz, int nl, int nc){
 void multiplica_matrizes(int **a, int **b, int **c, int nl_final, int inter, int nc_final){
     
     // preenchimento de c deve ser dois for (1° com nl_final, 2° com nc_final)
-    // for(int i = 0; i < nl_final; i++){
-    //     for(int j = 0; j < nc_final; j++){
-        
-    // }    
-    // }
-    
-    
-    c[0][0] = a[0][0]*b[0][0]+a[0][1]*b[1][0]+a[0][2]*b[2][0];
-    c[0][1] = a[0][0]*b[0][1]+a[0][1]*b[1][1]+a[0][2]*b[2][1];
-    c[0][2] = a[0][0]*b[0][2]+a[0][1]*b[1][2]+a[0][2]*b[2][2];
-    c[0][3] = a[0][0]*b[0][3]+a[0][1]*b[1][3]+a[0][2]*b[2][3];
+    for(int i = 0; i < nl_final; i++){
+        for(int j = 0; j < nc_final; j++){
+            c[i][j] = 0; // inicia o vetor com 0 porque faz um somatório acumulativo
+            for(int k = 0; k < inter; k++){
+                // linha de a com coluna de b
+                c[i][j] += a[i][k]*b[k][j];
+            }
+        }
+    }  
 
-    c[1][0] = a[1][0]*b[0][0]+a[1][1]*b[1][0]+a[1][2]*b[2][0];
-    c[1][1] = a[1][0]*b[0][1]+a[1][1]*b[1][1]+a[1][2]*b[2][1];
-    c[1][2] = a[1][0]*b[0][2]+a[1][1]*b[1][2]+a[1][2]*b[2][2];
-    c[1][3] = a[1][0]*b[0][3]+a[1][1]*b[1][3]+a[1][2]*b[2][3];
-
-    
 }
 
 int main()
