@@ -1,9 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void imprimir(int ***matriz, int np, int nl, int nc){
+     for(int i = 0; i < np; ++i) {
+        printf("\nPlano %d:\n", i+1);
+        for (int j = 0; j < nl; ++j) {
+            for (int k = 0; k < nc; ++k) {
+                printf("%d ", matriz[i][j][k]);
+            }
+            printf("\n");
+        }
+    } 
+}
+
 int main() {
     int ***matriz;
     int np, nl, nc;
+    int impressao, modificar_arr;
 
     printf("Coloque o numero de planos, linhas e colunas (profundidade, altura e comprimento):\n");
     scanf("%d %d %d", &np, &nl, &nc);
@@ -45,18 +58,35 @@ int main() {
         }
     }
 
+    printf("Deseja imprimir a matriz preenchida randomicamente?\nDigite 1 para sim e 0 para nao\n");
+    scanf("%d", &impressao);
     
-    // impressão
-    for(int i = 0; i < np; ++i) {
-        printf("\nPlano %d:\n", i);
-        for (int j = 0; j < nl; ++j) {
-            for (int k = 0; k < nc; ++k) {
-                printf("%d ", matriz[i][j][k]);
-            }
-            printf("\n");
-        }
+    if(impressao==1){
+        // impressão
+        imprimir(matriz, np, nl, nc);
     }
     
+    printf("Deseja mudar algum valor?\nDigite 1 para sim e 0 para nao\n");
+    scanf("%d", &modificar_arr);
+    
+    if(modificar_arr==1){
+        // dimensão da array que vai ser alterada
+        int nnp, nnl, nnc;
+        printf("Digite o plano, linha e coluna:\n");
+        scanf("%d %d %d", &nnp, &nnl, &nnc);
+        
+        if(nnp > np+1 || nnl > nl+1 || nnc > nc+1){
+            printf("Dimensoes fora do alcance! Xau!");
+            exit(0);
+        }
+        
+        printf("Digite o numero:\n");
+        // -1 pois o usuario não dá input com o plano começando com 0
+        scanf("%d", &matriz[nnp-1][nnl-1][nnc-1]);
+        
+        imprimir(matriz, np, nl, nc); // imprime depois de alterado
+
+    }
     
     // liberação da memoria
     free(matriz[0][0]);
