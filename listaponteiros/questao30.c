@@ -2,20 +2,18 @@
 #include <stdlib.h>
 
 void imprimir(int ***matriz, int np, int nl, int nc, int plano){
-    // decremento porque o usuario nao começa a contar do 0
-    --plano;
-    
-    printf("Plano %d:\n", plano+1);
     if(nc >= plano){
+        printf("Plano %d:\n", plano);
+        --plano; // decremento porque o usuario nao começa a contar do 0
+        
         for (int j = 0; j < nl; ++j) {
             for (int k = 0; k < nc; ++k) {
                 printf("%d ", matriz[plano][j][k]);
             }
                 printf("\n");
         }
-        return;
     }
-    
+    else{
      for(int i = 0; i < np; ++i) {
         printf("\nPlano %d:\n", i+1);
         for (int j = 0; j < nl; ++j) {
@@ -25,6 +23,8 @@ void imprimir(int ***matriz, int np, int nl, int nc, int plano){
             printf("\n");
         }
     } 
+}
+    
 }
 
 int main() {
@@ -77,7 +77,7 @@ int main() {
     
     if(impressao==1){
         int plano;
-        printf("Qual plano voce deseja imprimir(comecando de 1)?\n Se quiser todos, digite uma dimensao maior que o numero de planos disponiveis\n");
+        printf("Qual plano voce deseja imprimir(comecando de 1)?\nSe quiser todos, digite uma dimensao maior que o numero de planos disponiveis\n");
         scanf("%d", &plano);
         // impressão
         imprimir(matriz, np, nl, nc, plano);
@@ -101,7 +101,7 @@ int main() {
         // -1 pois o usuario não dá input com o plano começando com 0
         scanf("%d", &matriz[nnp-1][nnl-1][nnc-1]);
         
-        imprimir(matriz, np, nl, nc, nnp); // imprime o plano depois de alterado
+        imprimir(matriz, np, nl, nc, nnp); // imprime o plano que foi alterado
 
     }
     
