@@ -115,27 +115,22 @@ void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius){
             }
         }
     }
-
-    // for (int i = xcenter; i < xcenter + radius; ++i) {
-    //     for (int j = ycenter; j < ycenter + radius; ++j) {
-    //         for (int k = zcenter; k < zcenter + radius; ++k) {
-    //             if (sqrt((xcenter - i) * (xcenter - i) + (ycenter - j) * (ycenter - j) +
-    //                      (zcenter - k) * (zcenter - k)) <= radius) {
-    //                 putVoxel(i, j, k);
-    //                 std::cout << "i: " << i << " j: " << j << " k: " << k << "\n";
-    //                 std::cout << "dentro para a esfera\n";
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius){
-    for(int i=xcenter; i < xcenter+radius; ++i){
-        for(int j=ycenter; j < ycenter+radius; ++j){
-            for(int k=zcenter; k < zcenter+radius; ++k){
-                if(sqrt((xcenter-i)*(xcenter-i) + (ycenter-j)*(ycenter-j) + (zcenter-k)*(zcenter-k))<=radius){
-                    cutVoxel(i,j,k);
+    for(int i = 0; i<= radius; ++i){
+        for(int j = 0; j<= radius; ++j){
+            for(int k = 0; k <= radius; ++k){
+
+                if(sqrt((i * i) + (j*j) + (k*k)) <= radius){
+                    cutVoxel(xcenter+i, ycenter+j, zcenter+k);
+                    cutVoxel(xcenter-i, ycenter-j, zcenter-k);
+                    cutVoxel(xcenter-i, ycenter-j, zcenter+k);
+                    cutVoxel(xcenter-i, ycenter+j, zcenter-k);
+                    cutVoxel(xcenter-i, ycenter+j, zcenter+k);
+                    cutVoxel(xcenter+i, ycenter-j, zcenter-k);
+                    cutVoxel(xcenter+i, ycenter+j, zcenter-k);
+                    cutVoxel(xcenter+i, ycenter-j, zcenter+k);
                 }
             }
         }
