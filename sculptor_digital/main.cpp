@@ -48,6 +48,10 @@ int main(void)
 
     // continuacao para comeco do bico
 
+    //pe do pinguim
+    pinguim.setColor(1.0, 0.4, 0.13, 1.0);
+    pinguim.putBox(30, 42, 5, 7, 20, 23);
+    pinguim.putBox(30, 42, 5, 7, 28, 31);
 
     // barriga do pinguim - parte cinza
     pinguim.setColor(0.2, 0.2, 0.2, 1.0);
