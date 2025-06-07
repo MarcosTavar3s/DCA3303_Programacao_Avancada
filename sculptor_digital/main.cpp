@@ -39,7 +39,7 @@ int main(void)
 
 
     // olhos do pinguim
-    pinguim.setColor(0.0, 0.0, 0.5, 1.0);
+    pinguim.setColor(0.3, 0.0, 0.5, 1.0);
     pinguim.putVoxel(35, 42, 27);
     pinguim.putVoxel(35, 42, 28);
 
@@ -48,7 +48,12 @@ int main(void)
 
     // bico
     pinguim.setColor(1.0, 0.4, 0.13, 1.0);
-    pinguim.putBox(31, 35, 37, 39, 24, 27);
+    pinguim.putBox(31, 35, 38, 40, 24, 27);
+
+    // conexao com o bico
+    pinguim.setColor(0.2, 0.2, 0.2, 1.0);
+    pinguim.putBox(35, 36, 40, 45, 24, 27);
+    pinguim.putBox(34, 35, 40, 44, 24, 27);
 
     // pe do pinguim
     pinguim.setColor(1.0, 0.4, 0.13, 1.0);
