@@ -46,12 +46,16 @@ int main(void)
     pinguim.putVoxel(35, 42, 22);
     pinguim.putVoxel(35, 42, 23);
 
-    // continuacao para comeco do bico
+    // bico
+    pinguim.setColor(1.0, 0.4, 0.13, 1.0);
+    pinguim.putBox(31, 35, 37, 39, 24, 27);
 
-    //pe do pinguim
+    // pe do pinguim
     pinguim.setColor(1.0, 0.4, 0.13, 1.0);
     pinguim.putBox(30, 42, 5, 7, 20, 23);
     pinguim.putBox(30, 42, 5, 7, 28, 31);
+
+    // bracos do pinguim
 
     // barriga do pinguim - parte cinza
     pinguim.setColor(0.2, 0.2, 0.2, 1.0);
