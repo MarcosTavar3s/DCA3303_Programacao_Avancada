@@ -28,7 +28,7 @@ int main(void){
     int nx, ny, nz;
 
     // abertura do arquivo
-    fin.open("/");
+    fin.open("C:/Users/marco/Downloads/UFRN/Terceiro Semestre/PA/figura.fig.txt");
 
     if(!fin.is_open()){
         std::cout << "Erro na leitura do arquivo" << std::endl;
@@ -38,7 +38,8 @@ int main(void){
     // leitura do cabecalho
     fin >> s;
     if(s.compare("dim")==0){
-        std::cin >> nx >> ny >> nz;
+        fin >> nx >> ny >> nz;
+        std::cout << nx << " " << ny << " " << nz;
     }
     else{
         std::cout<<"Arquivo no formato errado"<<std::endl;
@@ -103,9 +104,13 @@ int main(void){
             figuras.push_back(new CutEllipsoid(x0, y0, z0, raiox, raioy, raioz));
         }
 
-
     }
 
+    for(auto i: figuras){
+        i->draw(sculptor);
+    }
+
+    sculptor.writeOFF("figura_resultante.off");
 
     return 0;
 }
