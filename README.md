@@ -1,2 +1,3 @@
-# DCA3303
-O presente repositório contém as minhas resoluções e projetos das questões da disciplina (DCA3303) Programação Avançada da Universidade Federal do Rio Grande do Norte (UFRN).
+# Programação Avançada
+Este repositório apresenta os códigos desenvolvidos para a disciplina DCA3303 - Programação Avançada ofertada pelo Departamento de Computação e Automação (DCA) da Universidade Federal do Rio Grande do Norte (UFRN).
+
